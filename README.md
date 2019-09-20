@@ -1,7 +1,7 @@
 # Integrating  Redis in memory store with nodeJS server
 This repository provides a solution to create a docker container to have node server serving the front end and redis as a backend to store data.
 
-#Pre requisites -
+# Pre requisites -
 
 1. Install docker - Install docker from the official dockerhub site - https://docs.docker.com/docker-for-mac/
 
