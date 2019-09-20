@@ -27,6 +27,13 @@ app.use(bodyParser.json());
      })
  });
 
+ app.post('/update', function (req, res) {  
+    var msg = req.body.data;
+    console.log(req.body); 
+    client.set('message',msg);
+    console.log(msg);  
+    res.send(msg);  
+ });
 
  app.listen(8080, () => {
      console.log('Listening on port 8080');

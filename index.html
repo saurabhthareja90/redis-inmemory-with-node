@@ -1,0 +1,55 @@
+<!DOCTYPE html> 
+<html> 
+    <head> 
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <title>Web Page</title> 
+    <style> 
+        h1 { 
+            color:#009900; 
+            font-size:46px; 
+        } 
+        p { 
+            font-size:17px; 
+            margin-top:-25px; 
+            margin-left:15px; 
+        } 
+    </style> 
+    </head> 
+      
+    <body> 
+        <h1 id="message"></h1> 
+        <p>Message displayed above is stored in redis and being served via node js. In order to update the message please add the message below</p> 
+
+        <div>
+            <form>
+                <div class="container">
+                  <h1>Update header message</h1>
+                  <p>Please add new message, it will be persisted in Redis in memory store.</p>
+                  <hr>
+              
+                  <label for="msg"><b>Message</b></label>
+                  <input id="msg" type="text" placeholder="Message" name="msg" required>
+              
+                  <hr>
+                  <button type="submit" class="submit">Update</button>
+                </div>
+              </form>
+        </div>
+        <script type="text/javascript">
+            $(document).ready(function() {
+                $.ajax({
+                    url: '/message',
+                    // dataType: "jsonp",
+                    type: 'GET',
+                    success: function (data) {
+                        $( "#message" ).html( data );
+                        console.log('Success')
+                    },
+                    error: function (xhr, status, error) {
+                        console.log('Error: ' + error.message);
+                    },
+                });
+            });
+            </script>
+    </body> 
+</html> 
