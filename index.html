@@ -49,6 +49,31 @@
                         console.log('Error: ' + error.message);
                     },
                 });
+
+                $(function() {
+                    $(".submit").click(function() {
+                        var msg = $('#msg').val();
+                        var data = {
+                            data: msg
+                        };
+                        $.ajax({
+                            url: '/update',
+                            dataType: "json",
+                            data: data,
+                            // dataType: "jsonp",
+                            type: 'POST',
+                            success: function (response) {
+                                $( "#message" ).html( response );
+                                console.log('Success')
+                            },
+                            error: function (xhr, status, error) {
+                                console.log('Error: ' + error.message);
+                            },
+                        });
+                    });
+                });
+
+
             });
             </script>
     </body> 
