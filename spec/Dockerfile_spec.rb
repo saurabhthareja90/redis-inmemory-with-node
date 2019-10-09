@@ -14,7 +14,7 @@ describe "Dockerfile" do
     expect(@image.json["Config"]["Entrypoint"][0]).to eq("docker-entrypoint.sh")
   end
   
-  it "should pass the -h option by default" do
+  it "should pass the npm start cmd" do
     expect(@image.json["Config"]["Cmd"][0]).to eq("npm")
      expect(@image.json["Config"]["Cmd"][1]).to eq("start")
   end
